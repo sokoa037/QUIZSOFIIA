@@ -1,10 +1,32 @@
-#question{
-    background-color: gray;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+
+body {
+    background-color: cadetblue;
+    text-align: center;
 }
 
+#question {
+    background-color: gray;
+    color: white;
+    padding: 20px;
+    width: 400px;
+    margin: 20px auto;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+}
+
+
+
 #button1{
-    background-color: blue;
+   background-color: gold;
+}
+
+#button2{
+    background-color: gold;
+}
+
+#button3{
+    background-color: gold;
 }

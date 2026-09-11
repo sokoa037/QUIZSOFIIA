@@ -1,44 +1,61 @@
-const question1 = document.getElementById ("question")
-
-const button1 = document.getElementById ("button1")
-
-const button2 = document.getElementById ("button2")
-
-const button3 = document.getElementById ("button3")
-
-let id = 0
+const question = document.getElementById("question")
 
 
-let question_list = ["Hva handler GDPR hovedsakelig om?",
+const button1 = document.getElementById("button1")
+
+const button2 = document.getElementById("button2")
+
+const button3 = document.getElementById("button3")
+
+
+const points_display = document.getElementById("points")
+
+let current_question = 0
+let points = 0
+
+let question_list = [
+    "Hva handler GDPR hovedsakelig om?",
     "Hva betyr prinsippet om formålsbegrensning?",
     "Hvor lenge lagres vanlige meldinger og snaps i Snapchat?",
     "Hva må en bedrift gjøre hvis de vil bruke dataene dine til noe nytt?",
     "Hva skjer hvis en bedrift bryter GDPR-reglene?",
-    "Quizen er ferdig!"]
-let answersleft = ["djjsijisjfoi"]
-let answersmiddle = ["hsfihuhis"]
-let answersright =  ["gadbsdhbbda"]
+    "DU KLARTE DET...!"
+]
 
+let answers_list = [
+    ["Personvern og databeskyttelse", "Internetthastighet", "Maskinvare i PC"],
+    ["At data bare brukes til det du har sagt ja til", "At du må slette appen", "At alle kan se bildene dine"],
+    ["Automatisk slettet innen 24 timer", "Lagres for alltid", "Lagres i 10 år"],
+    ["Spørre deg om lov først", "Bruke dem uten å si fra", "Selge dem med en gang"],
+    ["De kan få overtredelsesbøter", "Ingenting skjer", "Internett blir stengt"],
+    
+]
 
-button1.textContent = answerleft[id]
-button2.textContent = answermiddle[id]
-button3.textContent = answerright[id]
+let correct_answers = [0, 0, 0, 0, 0]
 
-let correct_answers = [1,3,2]
+function update_questions() {
+    question.textContent = question_list[current_question]
 
-function check(answer){
-    if (answer == 1){
-        id++
-    }
+    button1.textContent = answers_list[current_question][0]
 
-    else{
-        alert("WRONGGG!!!")
-    }
+    button2.textContent = answers_list[current_question][1]
 
-    button1.textContent = answerleft[id]
-    button2.textContent = answermiddle[id]
-    button3.textContent = answerright[id]
+    button3.textContent = answers_list[current_question][2]
 
-question1.textContent=question_list[id]
-
+    points_display.textContent = points
 }
+
+function answer(choice) {
+
+    if (choice == correct_answers[current_question]) {
+
+
+        points += 1
+    } else {
+        alert("FEIILL!!")
+    }
+    current_question += 1
+    update_questions()
+}
+
+update_questions()
